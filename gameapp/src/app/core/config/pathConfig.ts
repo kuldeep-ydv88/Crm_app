@@ -1,4 +1,4 @@
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 export class PathConfig {
   public static get API_ENDPOINT(): string {
