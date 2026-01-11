@@ -31,6 +31,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+            // CSRF protection is disabled for stateless JWT authentication
+            // JWT tokens are stored in localStorage and sent via Authorization header
+            // CORS is configured to control which origins can access the API
             .csrf(AbstractHttpConfigurer::disable)
             .cors(cors -> cors.configure(http))
             .authorizeHttpRequests(auth -> auth
