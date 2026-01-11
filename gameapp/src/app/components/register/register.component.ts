@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { passwordMatchValidator } from '../../validators/password-match.validator';
 
 @Component({
   selector: 'app-register',
@@ -25,25 +26,13 @@ export class RegisterComponent implements OnInit {
       fullName: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required]
-    }, { validators: this.passwordMatchValidator });
+    }, { validators: passwordMatchValidator() });
   }
 
   ngOnInit(): void {
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/']);
     }
-  }
-
-  passwordMatchValidator(form: FormGroup) {
-    const password = form.get('password');
-    const confirmPassword = form.get('confirmPassword');
-    
-    if (password && confirmPassword && password.value !== confirmPassword.value) {
-      confirmPassword.setErrors({ mismatch: true });
-      return { mismatch: true };
-    }
-    
-    return null;
   }
 
   onSubmit(): void {
