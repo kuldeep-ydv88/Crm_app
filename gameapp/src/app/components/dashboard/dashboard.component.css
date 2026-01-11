@@ -1,0 +1,13 @@
+.profile-info strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+
+.card-header {
+  border-radius: 10px 10px 0 0;
+}
+
+.card {
+  border-radius: 10px;
+}
