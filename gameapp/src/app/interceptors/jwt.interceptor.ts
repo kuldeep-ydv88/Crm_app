@@ -8,7 +8,6 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // Skip adding token for authentication endpoints
     const isAuthEndpoint = request.url.includes('/api/auth/login') || 
                           request.url.includes('/api/auth/register');
     
@@ -25,7 +24,6 @@ export class JwtInterceptor implements HttpInterceptor {
         }
       });
     }
-
     return next.handle(request);
   }
 }

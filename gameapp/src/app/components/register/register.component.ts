@@ -7,6 +7,7 @@ import { passwordMatchValidator } from '../../validators/password-match.validato
 
 @Component({
   selector: 'app-register',
+  standalone: false,
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })

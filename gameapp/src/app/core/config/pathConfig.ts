@@ -49,4 +49,6 @@ export class PathConfig {
   public static UPDATE_OFFERS = `${PathConfig.API_ENDPOINT}/offers`;
   public static GET_ALL_OFFER = `${PathConfig.API_ENDPOINT}/offers`;
   public static DELETE_OFFER = `${PathConfig.API_ENDPOINT}/offers`;
+
+  
 }
