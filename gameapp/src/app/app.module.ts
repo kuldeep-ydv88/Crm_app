@@ -37,6 +37,7 @@ import { CategoryAddEditModalComponent } from './components/inventory-category/c
 import {
   provideHttpClient,
   withInterceptorsFromDi,
+  HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { ItemsDialogComponent } from './components/home/items-dialog/items-dialog.component';
 import { CreateBillComponent } from './components/billing/create-bill/create-bill.component';
@@ -46,6 +47,10 @@ import { OfferAddEditComponent } from './components/offers/offer-add-edit/offer-
 import { ViewHistoryComponent } from './components/view-history/view-history.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatPaginator } from '@angular/material/paginator';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -63,6 +68,9 @@ import { MatPaginator } from '@angular/material/paginator';
     OffersComponent,
     OfferAddEditComponent,
     ViewHistoryComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent,
     
   ],
   imports: [
@@ -99,6 +107,11 @@ import { MatPaginator } from '@angular/material/paginator';
     provideAnimationsAsync(),
     provideNativeDateAdapter(),
     provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent],
 })
