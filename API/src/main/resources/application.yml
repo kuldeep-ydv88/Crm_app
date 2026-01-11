@@ -9,3 +9,7 @@ spring:
     mongodb:
       uri: mongodb+srv://kuldeep_ydv32:Demo123@demo.fwkrxhd.mongodb.net/Demo?retryWrites=true&w=majority&appName=Demo
       database: Demo
+
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000
