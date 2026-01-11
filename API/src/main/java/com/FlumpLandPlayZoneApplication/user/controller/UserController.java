@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-@RequestMapping(value = "user")
+@RequestMapping(value = "/user")
 @RestController
 @AllArgsConstructor
 @Slf4j
@@ -26,17 +26,17 @@ public class UserController {
         return ResponseEntity.ok(userService.create(userInfo));
     }
 
-    @PostMapping("paginated")
+    @PostMapping("/paginated")
     public ResponseEntity<PaginatedResponse> getAllUser(@RequestBody PaginatedRequest payload){
         return ResponseEntity.ok(userService.findAll(payload));
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<UserInfo> findById(@PathVariable("id") String id){
         return ResponseEntity.ok(userService.findById(id));
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<UserInfo> updateUserInfo(@RequestBody UserInfo userInfo, @PathVariable("id") String id){
         return ResponseEntity.ok(userService.updateUserInfo(userInfo, id));
     }

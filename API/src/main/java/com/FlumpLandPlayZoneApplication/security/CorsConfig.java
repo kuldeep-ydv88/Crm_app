@@ -13,7 +13,12 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:4200")
+                        .allowedOrigins(
+                                "https://organicfoodslife.org",
+                                "https://www.organicfoodslife.org",
+                                "https://api.organicfoodslife.org",
+                                "http://localhost:4200"
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);

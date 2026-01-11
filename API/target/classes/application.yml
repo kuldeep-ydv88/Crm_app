@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
 
 spring:
   application:
@@ -7,5 +7,5 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://localhost:27017/flumpland_db
-      database: flumpland_db
+      uri: mongodb+srv://kuldeep_ydv32:Demo123@demo.fwkrxhd.mongodb.net/Demo?retryWrites=true&w=majority&appName=Demo
+      database: Demo

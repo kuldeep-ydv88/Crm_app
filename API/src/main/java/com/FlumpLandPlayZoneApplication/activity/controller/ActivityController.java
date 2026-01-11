@@ -15,7 +15,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping(value = "activity")
+@RequestMapping(value = "/activity")
 @AllArgsConstructor
 public class ActivityController {
 
@@ -26,7 +26,7 @@ public class ActivityController {
         return ResponseEntity.ok(activityService.create(activity));
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Activity> updateActivityDetails(@PathVariable("id") String id,@RequestBody Activity activity){
         return ResponseEntity.ok(activityService.updateActivityDetails(activity,id));
     }
@@ -36,7 +36,7 @@ public class ActivityController {
         return ResponseEntity.ok(activityService.getAllActivity());
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Activity> getActivityInfo(@PathVariable("id") String id){
         return ResponseEntity.ok(activityService.getActivityInfo(id));
     }

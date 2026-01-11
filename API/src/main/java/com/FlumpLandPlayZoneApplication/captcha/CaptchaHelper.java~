@@ -1,4 +1,0 @@
-package com.FlumpLandPlayZoneApplication.captcha;
-
-public interface CaptchaHelper {
-}

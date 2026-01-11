@@ -41,7 +41,7 @@ public class OfferController {
         return ResponseEntity.ok(offer);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<APIResponseDTO> deleteOffersDetails(@PathVariable("id") String id) {
         return ResponseEntity.ok(offerService.deleteOffer(id));
     }

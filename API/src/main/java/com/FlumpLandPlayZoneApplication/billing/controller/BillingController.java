@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping(value = "billing")
+@RequestMapping(value = "/billing")
 @RestController
 @AllArgsConstructor
 public class BillingController {
@@ -23,7 +23,7 @@ public class BillingController {
         return ResponseEntity.ok(billingService.createBill(billing));
     }
 
-    @PostMapping("paginated")
+    @PostMapping("/paginated")
     public ResponseEntity<BillingPaginatedResponse> getAllBillings(@RequestBody PaginatedRequest payload) {
         return ResponseEntity.ok(billingService.getAllBilling(payload));
     }
@@ -33,7 +33,7 @@ public class BillingController {
         return ResponseEntity.ok(billingService.billingDetails(id));
     }
 
-    @GetMapping("bills/{userId}")
+    @GetMapping("/bills/{userId}")
     public ResponseEntity<List<Billing>> getUserBillings(@PathVariable("userId") String userId) {
         return ResponseEntity.ok(billingService.getUserBillings(userId));
     }

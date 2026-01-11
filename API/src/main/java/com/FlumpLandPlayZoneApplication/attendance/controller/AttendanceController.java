@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = "attendance")
+@RequestMapping(value = "/attendance")
 public class AttendanceController {
 
     private final AttendanceService attendanceService;
@@ -24,7 +24,7 @@ public class AttendanceController {
         return ResponseEntity.ok(APIResponseDTO.builder().status(HttpStatus.OK).message(MessageConfig.TIME_RECORDED_SUCCESSFULLY).build());
     }
 
-    @PostMapping("paginated/{userId}")
+    @PostMapping("/paginated/{userId}")
     public ResponseEntity<AttendancePaginatedResponse> getUserAttendance(@PathVariable("userId") String userId,@RequestBody PaginatedRequest payload) {
         return ResponseEntity.ok(attendanceService.getUserAttendance(userId,payload));
     }
@@ -35,7 +35,7 @@ public class AttendanceController {
         return ResponseEntity.ok(APIResponseDTO.builder().status(HttpStatus.OK).message(MessageConfig.TIME_RECORDED_SUCCESSFULLY).build());
     }
 
-    @GetMapping("info/{attendanceId}")
+    @GetMapping("/info/{attendanceId}")
     public ResponseEntity<InventoryResponse> getInventoryDetails(@PathVariable("attendanceId") String attendanceId) {
         return ResponseEntity.ok(attendanceService.getInventoryDetails(attendanceId));
     }

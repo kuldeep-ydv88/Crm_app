@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping(value = "categories")
+@RequestMapping(value = "/categories")
 @AllArgsConstructor
 @RestController
 public class CategoryController {
@@ -30,12 +30,12 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.getAllCategory());
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Categories> findById(@PathVariable("id") String id) {
         return ResponseEntity.ok(categoryService.findById(id));
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<APIResponseDTO> deleteCategory(@PathVariable("id") String id) {
         return ResponseEntity.ok(categoryService.deleteCategory(id));
     }

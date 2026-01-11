@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping(value = "inventory")
+@RequestMapping(value = "/inventory")
 @RestController
 @AllArgsConstructor
 @Slf4j
@@ -23,12 +23,12 @@ public class InventoryController {
         return ResponseEntity.ok(inventoryService.createInventory(inventory));
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Inventory> updateInventory(@PathVariable("id") String id, @RequestBody Inventory inventory) {
         return ResponseEntity.ok(inventoryService.updateInventory(inventory, id));
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public APIResponseDTO deleteInventory(@PathVariable("id") String id) {
         log.info("delete inventory with i'd {}", id);
         return inventoryService.deleteInventory(id);
@@ -40,7 +40,7 @@ public class InventoryController {
         return ResponseEntity.ok(inventoryService.getAllInventory());
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Inventory> getInventory(@PathVariable("id") String id) {
         return ResponseEntity.ok(inventoryService.getInventory(id));
     }
