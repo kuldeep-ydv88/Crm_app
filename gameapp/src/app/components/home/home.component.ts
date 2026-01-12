@@ -19,6 +19,7 @@ import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
+  
   displayedColumns: string[] = [
     'fullName',
     'dateOfBirth',
